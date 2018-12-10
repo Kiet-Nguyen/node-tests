@@ -1,3 +1,31 @@
-module.exports.add = (a, b) => a + b;
+const add = (a, b) => a + b;
 
-module.exports.square = x => x * x;
+const asyncAdd = (a, b, callback) => {
+  setTimeout(() => {
+    callback(a + b);
+  }, 1000);
+};
+
+const square = x => x * x;
+
+const asyncSquare = (x, callback) => {
+  setTimeout(() => {
+    callback(x * x);
+  }, 1000);
+}
+
+const setName = (user, fullName) => {
+  const names = fullName.split(' ');
+  user.firstName = names[0];
+  user.lastName = names[1];
+
+  return user;
+};
+
+module.exports = {
+  add,
+  asyncAdd,
+  square,
+  asyncSquare,
+  setName,
+};
